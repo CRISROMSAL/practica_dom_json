@@ -44,3 +44,7 @@ console.log('querySelectorAll (estática):', listaEstatica.length);//Muestra por
 const nuevoParrafo = document.createElement('p');
 nuevoParrafo.textContent = 'Creado dinámicamente';
 document.body.appendChild(nuevoParrafo);
+
+//Ejercicio 7: Crear nodos de texto
+const nodoTexto = document.createTextNode('Este es un nodo de texto');
+document.getElementById('contenedor').appendChild(nodoTexto);
