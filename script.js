@@ -101,3 +101,19 @@ lista.append(liAlFinal); // append(): añade el li al final, dentro del ul
 lista.prepend(liAlInicio); // prepend(): añade el li al inicio, dentro del ul
 lista.before(parrafoAntes); // before(): coloca el párrafo antes del ul 
 lista.after(parrafoDespues); // after(): coloca el párrafo despues del ul
+
+// Ejercicio 11: Reemplazar y eliminar
+const botonEliminar = document.getElementById('botonEliminar'); // Selecciona el botón eliminar
+const botonReemplazar = document.getElementById('botonReemplazar'); // Selecciona el botón reemplazar
+const parrafo11 = document.getElementById('parrafoEjercicio11'); // Selecciona el párrafo
+
+botonEliminar.onclick = function() { // Cuando se hace clic en el botón eliminar
+    parrafo11.remove(); // Elimina el párrafo del DOM
+    console.log('Párrafo eliminado'); // Muestra mensaje en consola
+};
+
+botonReemplazar.onclick = function() { // Cuando se hace clic en el botón reemplazar
+    const nuevoElemento = document.createElement('p'); // Crea un parrafo
+    nuevoElemento.textContent = 'Elemento reemplazado'; // Le añade texto
+    parrafo11.replaceWith(nuevoElemento); // Reemplaza el párrafo con el h3
+};
