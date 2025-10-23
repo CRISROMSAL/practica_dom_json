@@ -117,3 +117,13 @@ botonReemplazar.onclick = function() { // Cuando se hace clic en el botón reemp
     nuevoElemento.textContent = 'Elemento reemplazado'; // Le añade texto
     parrafo11.replaceWith(nuevoElemento); // Reemplaza el párrafo con el h3
 };
+
+// Ejercicio 12: Clonar elementos
+const botonClonar = document.getElementById('botonClonar'); // Selecciona el botón clonar
+const tarjeta12 = document.getElementById('tarjeta12'); // Selecciona la tarjeta original
+
+botonClonar.onclick = function() { // Cuando se hace clic en el botón
+    const clon = tarjeta12.cloneNode(true); // Clona la tarjeta con todo su contenido
+    clon.querySelector('.card-text').textContent = 'Texto de la tarjeta clonada'; // Cambia el texto del clon
+    tarjeta12.parentNode.appendChild(clon); // Añade el clon al contenedor. Aqui utilizamo el parentNode porque queremos poner el clon al lado de la tarjeta original, no dentro. En otros ejercicios no hemos puesto el parentNode porque porque queriamos añadir algo dentro del elemento que tenemos.
+};
