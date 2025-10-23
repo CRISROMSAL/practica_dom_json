@@ -10,3 +10,8 @@ const textos = document.getElementsByClassName('texto');
 for (let i = 0; i < textos.length; i++) {
     textos[i].style.backgroundColor = 'gray';
 }
+
+// Ejercicio 3: Selección con querySelector: Devuelve sólo el primer elemento
+const caja = document.querySelector('.caja');
+caja.style.border = '2px solid orange';
+caja.style.backgroundColor = 'pink';
