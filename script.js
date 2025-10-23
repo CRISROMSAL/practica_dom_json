@@ -54,3 +54,30 @@ const imagen = document.createElement('img');
 imagen.setAttribute('src', 'https://media.revistagq.com/photos/607d3e0c4286e6a59febbacc/master/pass/los-simpson.jpg');
 imagen.setAttribute('alt', 'Imagen generada por JS'); //Esto se utiliza para mostrar un texto descriptivo si la imagen no se carga, para ayudar a personas con discapacidad visual y mejorar el SEO.
 document.body.appendChild(imagen);
+
+// Ejercicio 9: Crear estructura completa
+const tarjeta = document.createElement('div'); // Crear el div principal de la tarjeta
+tarjeta.className = 'card'; // Añadirle la clase 'card' de Bootstrap
+
+const tarjetaCuerpo = document.createElement('div'); // Crear el div interno del cuerpo de la tarjeta
+tarjetaCuerpo.className = 'card-body'; // Añadirle la clase 'card-body' de Bootstrap
+
+const titulo = document.createElement('h5'); // Crear el título h5
+titulo.className = 'card-title'; // Añadirle la clase 'card-title' de Bootstrap
+titulo.textContent = 'Título de la tarjeta'; // Añadir el texto del título
+
+const texto = document.createElement('p'); // Crear el párrafo
+texto.className = 'card-text'; // Añadirle la clase 'card-text' de Bootstrap
+texto.textContent = 'Este es el texto de la tarjeta creada dinámicamente.'; // Añadir el texto del párrafo
+
+const boton = document.createElement('button'); // Crear el botón
+boton.className = 'btn btn-primary'; // Añadirle las clases 'btn btn-primary' de Bootstrap
+boton.textContent = 'Botón'; // Añadir el texto del botón
+
+tarjetaCuerpo.appendChild(titulo); // Añadir el título dentro de tarjetaCuerpo
+tarjetaCuerpo.appendChild(texto); // Añadir el texto dentro de tarjetaCuerpo
+tarjetaCuerpo.appendChild(boton); // Añadir el botón dentro de tarjetaCuerpo
+
+tarjeta.appendChild(tarjetaCuerpo); // Añadir tarjetaCuerpo dentro de cuerpo
+
+document.querySelector('.container').appendChild(tarjeta); // Añadir toda la tarjeta dentro del primer container de la página
