@@ -23,3 +23,19 @@ botones.forEach(function(boton) {
     boton.textContent = 'DOM listo';
 });
 
+// Ejercicio 5: Comparación entre colecciones vivas y estáticas
+const listaViva = document.getElementsByTagName('li');
+const listaEstatica = document.querySelectorAll('li');
+
+console.log('Antes de agregar:');
+console.log('getElementsByTagName (viva):', listaViva.length);//Muestra por consola 2 (elementos)
+console.log('querySelectorAll (estática):', listaEstatica.length);//Muestra por consola 2 (elementos)
+
+// Agregar nuevo elemento
+const nuevoLi = document.createElement('li');
+nuevoLi.textContent = 'Elemento 3';
+document.getElementById('lista').appendChild(nuevoLi);
+
+console.log('Después de agregar:');
+console.log('getElementsByTagName (viva):', listaViva.length);//Muestra por consola 3 (elementos)
+console.log('querySelectorAll (estática):', listaEstatica.length);//Muestra por consola 2 (elementos)
