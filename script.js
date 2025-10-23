@@ -15,3 +15,11 @@ for (let i = 0; i < textos.length; i++) {
 const caja = document.querySelector('.caja');
 caja.style.border = '2px solid orange';
 caja.style.backgroundColor = 'pink';
+
+// Ejercicio 4: Selección con querySelectorAll: Devuelve todos los elementos 
+const botones = document.querySelectorAll('.btn-dom');
+
+botones.forEach(function(boton) {
+    boton.textContent = 'DOM listo';
+});
+
