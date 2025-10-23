@@ -39,3 +39,8 @@ document.getElementById('lista').appendChild(nuevoLi);
 console.log('Después de agregar:');
 console.log('getElementsByTagName (viva):', listaViva.length);//Muestra por consola 3 (elementos)
 console.log('querySelectorAll (estática):', listaEstatica.length);//Muestra por consola 2 (elementos)
+
+// Ejercicio 6: Crear elementos dinámicamente
+const nuevoParrafo = document.createElement('p');
+nuevoParrafo.textContent = 'Creado dinámicamente';
+document.body.appendChild(nuevoParrafo);
