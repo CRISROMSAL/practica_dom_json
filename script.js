@@ -81,3 +81,23 @@ tarjetaCuerpo.appendChild(boton); // Añadir el botón dentro de tarjetaCuerpo
 tarjeta.appendChild(tarjetaCuerpo); // Añadir tarjetaCuerpo dentro de cuerpo
 
 document.querySelector('.container').appendChild(tarjeta); // Añadir toda la tarjeta dentro del primer container de la página
+
+// Ejercicio 10: Insertar elementos en distintas posiciones
+const lista = document.getElementById('miLista'); // Seleccionar la lista ul
+
+const liAlFinal = document.createElement('li'); // Crear un li para añadir al final
+liAlFinal.textContent = 'Elemento añadido al final de la lista con append';
+
+const liAlInicio = document.createElement('li'); // Crear un li para añadir al inicio
+liAlInicio.textContent = 'Elemento añadido al principio de la lista con prepend';
+
+const parrafoAntes = document.createElement('p'); // Crear un párrafo para colocar antes del ul
+parrafoAntes.textContent = 'Elemento añadido antes de la lista con before';
+
+const parrafoDespues = document.createElement('p'); // Crear un párrafo para colocar después del ul
+parrafoDespues.textContent = 'Elemento añadido despues de la lista con after';
+
+lista.append(liAlFinal); // append(): añade el li al final, dentro del ul
+lista.prepend(liAlInicio); // prepend(): añade el li al inicio, dentro del ul
+lista.before(parrafoAntes); // before(): coloca el párrafo antes del ul 
+lista.after(parrafoDespues); // after(): coloca el párrafo despues del ul
