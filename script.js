@@ -48,3 +48,9 @@ document.body.appendChild(nuevoParrafo);
 //Ejercicio 7: Crear nodos de texto
 const nodoTexto = document.createTextNode('Este es un nodo de texto');
 document.getElementById('contenedor').appendChild(nodoTexto);
+
+// Ejercicio 8: Añadir atributos a un elemento
+const imagen = document.createElement('img');
+imagen.setAttribute('src', 'https://media.revistagq.com/photos/607d3e0c4286e6a59febbacc/master/pass/los-simpson.jpg');
+imagen.setAttribute('alt', 'Imagen generada por JS'); //Esto se utiliza para mostrar un texto descriptivo si la imagen no se carga, para ayudar a personas con discapacidad visual y mejorar el SEO.
+document.body.appendChild(imagen);
