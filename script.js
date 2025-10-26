@@ -127,3 +127,20 @@ botonClonar.onclick = function() { // Cuando se hace clic en el botón
     clon.querySelector('.card-text').textContent = 'Texto de la tarjeta clonada'; // Cambia el texto del clon
     tarjeta12.parentNode.appendChild(clon); // Añade el clon al contenedor. Aqui utilizamo el parentNode porque queremos poner el clon al lado de la tarjeta original, no dentro. En otros ejercicios no hemos puesto el parentNode porque porque queriamos añadir algo dentro del elemento que tenemos.
 };
+
+// Ejercicio 13: Crear lista dinámica con botón
+const botonAgregar = document.getElementById('botonAgregar'); // Selecciona el botón
+const listaDinamica = document.getElementById('listaDinamica13'); // Selecciona la lista
+
+botonAgregar.onclick = function() { // Cuando se hace clic en el botón
+    const nuevoLi = document.createElement('li'); // Crea un nuevo elemento li
+    nuevoLi.textContent = 'Nuevo elemento'; // Le añade texto
+    listaDinamica.appendChild(nuevoLi); // Añade el li a la lista
+};
+
+// Ejercicio 14: Eliminar último elemento
+const botonEliminarUltimoElemento = document.getElementById('botonEliminarUltimoElemento'); // Selecciona el botón eliminar
+
+botonEliminarUltimoElemento.onclick = function() { // Cuando se hace clic en el botón
+    listaDinamica.lastElementChild.remove(); // Elimina el último hijo de la lista
+};
