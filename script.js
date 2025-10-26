@@ -144,3 +144,9 @@ const botonEliminarUltimoElemento = document.getElementById('botonEliminarUltimo
 botonEliminarUltimoElemento.onclick = function() { // Cuando se hace clic en el botón
     listaDinamica.lastElementChild.remove(); // Elimina el último hijo de la lista
 };
+
+// Ejercicio 15: Recorrer colección y modificar
+const items = document.querySelectorAll('.item'); // Selecciona todos los elementos con clase item
+items.forEach(function(item, pos) { // Recorre cada elemento
+    item.textContent = 'Elemento ' + (pos + 1); // Numera cada elemento (pos empieza en 0, sumamos 1)
+});
