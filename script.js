@@ -150,3 +150,39 @@ const items = document.querySelectorAll('.item'); // Selecciona todos los elemen
 items.forEach(function(item, pos) { // Recorre cada elemento
     item.textContent = 'Elemento ' + (pos + 1); // Numera cada elemento (pos empieza en 0, sumamos 1)
 });
+
+// Ejercicio 16: Crear una galería con JSON local
+const imagenes = [ // Array con objetos JSON
+    { titulo: "Montaña", url: "https://via.placeholder.com/150/1" },
+    { titulo: "Lago", url: "https://via.placeholder.com/150/2" },
+    { titulo: "Bosque", url: "https://via.placeholder.com/150/3" }
+];
+
+const contenedorGaleria = document.createElement('div'); // Crea un contenedor para la galería
+contenedorGaleria.className = 'container my-5'; // Le añade clases de Bootstrap
+document.body.appendChild(contenedorGaleria); // Añade el contenedor al body
+
+imagenes.forEach(function(imagen) { // Recorre cada objeto del array
+    const tarjeta = document.createElement('div'); // Crea una tarjeta
+    tarjeta.className = 'card'; // Le añade la clase card
+    tarjeta.style.width = '18rem'; // Le establece un ancho
+    tarjeta.style.display = 'inline-block'; // Las tarjetas se muestran en línea
+    tarjeta.style.margin = '10px'; // Añade margen entre tarjetas
+    
+    const img = document.createElement('img'); // Crea la imagen
+    img.className = 'card-img-top'; // Le añade la clase de Bootstrap
+    img.src = imagen.url; // Establece la URL de la imagen
+    img.alt = imagen.titulo; // Establece el texto alternativo
+    
+    const tarjetaBody = document.createElement('div'); // Crea el cuerpo de la tarjeta
+    tarjetaBody.className = 'card-body'; // Le añade la clase card-body
+    
+    const titulo = document.createElement('h5'); // Crea el título
+    titulo.className = 'card-title'; // Le añade la clase card-title
+    titulo.textContent = imagen.titulo; // Establece el texto del título
+    
+    tarjetaBody.appendChild(titulo); // Añade el título al cuerpo
+    tarjeta.appendChild(img); // Añade la imagen a la tarjeta
+    tarjeta.appendChild(tarjetaBody); // Añade el cuerpo a la tarjeta
+    contenedorGaleria.appendChild(tarjeta); // Añade la tarjeta al contenedor
+});
