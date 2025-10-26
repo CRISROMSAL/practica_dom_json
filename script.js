@@ -186,3 +186,22 @@ imagenes.forEach(function(imagen) { // Recorre cada objeto del array
     tarjeta.appendChild(tarjetaBody); // Añade el cuerpo a la tarjeta
     contenedorGaleria.appendChild(tarjeta); // Añade la tarjeta al contenedor
 });
+
+
+// Ejercicio 17: Mostrar datos de API JSONPlaceholder
+fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la API
+    .then(function(respuesta) { // Recibe la respuesta
+        return respuesta.json(); // Convierte la respuesta a JSON
+    })
+    .then(function(usuarios) { // Recibe los datos de usuarios
+        const ul = document.createElement('ul'); // Crea una lista ul
+        ul.className = 'container my-5'; // Le añade clases de Bootstrap
+        
+        usuarios.forEach(function(usuario) { // Recorre cada usuario
+            const li = document.createElement('li'); // Crea un elemento li
+            li.textContent = usuarios.name + ' - ' + usuarios.email; // Añade nombre y email
+            ul.appendChild(li); // Añade el li a la lista
+        });
+        
+        document.body.appendChild(ul); // Añade la lista al body
+    });
