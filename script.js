@@ -206,3 +206,51 @@ fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición GET a l
         listaUsuarios.appendChild(li); // Añade el li a la lista lu
         });
     });
+
+
+ // Ejercicio 18: Mostrar datos anidados de JSON
+fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la API
+    .then(function(respuesta) { // Recibe la respuesta
+        return respuesta.json(); // Convierte a JSON
+    })
+    .then(function(usuarios) { // Recibe el array de usuarios
+        const tabla = document.createElement('table'); // Crea la tabla
+        tabla.className = 'table container my-5'; // Le añade clases de Bootstrap
+        
+        const encabezado = document.createElement('thead'); // Crea el encabezado de la tabla
+        const filaEncabezado = document.createElement('tr'); // Crea la fila del encabezado
+        
+        const columnaNombre = document.createElement('th'); // Crea columna para nombre
+        columnaNombre.textContent = 'Name'; // Añade texto
+        const columnaEmail = document.createElement('th'); // Crea columna para email
+        columnaEmail.textContent = 'Email'; // Añade texto
+        const columnaCiudad = document.createElement('th'); // Crea columna para ciudad
+        columnaCiudad.textContent = 'City'; // Añade texto
+        
+        filaEncabezado.appendChild(columnaNombre); // Añade columna nombre a la fila
+        filaEncabezado.appendChild(columnaEmail); // Añade columna email a la fila
+        filaEncabezado.appendChild(columnaCiudad); // Añade columna ciudad a la fila
+        encabezado.appendChild(filaEncabezado); // Añade la fila al encabezado
+        tabla.appendChild(encabezado); // Añade el encabezado a la tabla
+        
+        const cuerpo = document.createElement('tbody'); // Crea el cuerpo de la tabla
+        
+        usuarios.forEach(function(usuario) { // Recorre cada usuario
+            const fila = document.createElement('tr'); // Crea una fila
+            
+            const celdaNombre = document.createElement('td'); // Crea celda para nombre
+            celdaNombre.textContent = usuario.name; // Añade el nombre
+            const celdaEmail = document.createElement('td'); // Crea celda para email
+            celdaEmail.textContent = usuario.email; // Añade el email
+            const celdaCiudad = document.createElement('td'); // Crea celda para ciudad
+            celdaCiudad.textContent = usuario.address.city; // Añade la ciudad (dato anidado)
+            
+            fila.appendChild(celdaNombre); // Añade celda nombre a la fila
+            fila.appendChild(celdaEmail); // Añade celda email a la fila
+            fila.appendChild(celdaCiudad); // Añade celda ciudad a la fila
+            cuerpo.appendChild(fila); // Añade la fila al cuerpo
+        });
+        
+        tabla.appendChild(cuerpo); // Añade el cuerpo a la tabla
+        document.body.appendChild(tabla); // Añade la tabla al body
+    });   
