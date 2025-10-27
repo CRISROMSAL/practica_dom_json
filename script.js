@@ -189,19 +189,20 @@ imagenes.forEach(function(imagen) { // Recorre cada objeto del array
 
 
 // Ejercicio 17: Mostrar datos de API JSONPlaceholder
-fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la API
-    .then(function(respuesta) { // Recibe la respuesta
-        return respuesta.json(); // Convierte la respuesta a JSON
+
+const listaUsuarios = document.createElement("ul"); // Crea un elemento ul vacío
+document.body.appendChild(listaUsuarios); //Añade la lista ul al body de la página
+
+fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición GET a la API para obtener usuarios
+    .then(function(respuesta) { // Recibe la respuesta de la API (paquete cerrado)
+        return respuesta.json(); // Convierte la respuesta a JSON (se abre el paquete)
     })
-    .then(function(usuarios) { // Recibe los datos de usuarios
-        const ul = document.createElement('ul'); // Crea una lista ul
-        ul.className = 'container my-5'; // Le añade clases de Bootstrap
+    .then(function(usuarios) { // Recibe el array usuarios ya convertido a JSON
+        usuarios.forEach(function(usuario){ // Recorre cada usuario del array
         
-        usuarios.forEach(function(usuario) { // Recorre cada usuario
-            const li = document.createElement('li'); // Crea un elemento li
-            li.textContent = usuarios.name + ' - ' + usuarios.email; // Añade nombre y email
-            ul.appendChild(li); // Añade el li a la lista
+        const li = document.createElement('li'); // Crea un elemento li para cada usuario
+
+        li.textContent = usuario.name + ' - ' + usuario.email; // Añade nombre y email del usuario como texto del li
+        listaUsuarios.appendChild(li); // Añade el li a la lista lu
         });
-        
-        document.body.appendChild(ul); // Añade la lista al body
     });
