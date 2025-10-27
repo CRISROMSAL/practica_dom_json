@@ -254,3 +254,42 @@ fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la AP
         tabla.appendChild(cuerpo); // Añade el cuerpo a la tabla
         document.body.appendChild(tabla); // Añade la tabla al body
     });   
+
+    // Ejercicio 19: Filtrar y mostrar datos
+fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la API
+    .then(function(respuesta) { // Recibe la respuesta
+        return respuesta.json(); // Convierte a JSON
+    })
+    .then(function(usuarios) { // Recibe el array de usuarios
+        const contenedor = document.createElement('div'); // Crea un contenedor
+        contenedor.className = 'container my-5'; // Le añade clases de Bootstrap
+        
+        const usuariosFiltrados = usuarios.filter(function(usuario) { // Filtra los usuarios
+            return usuario.email.endsWith('.biz'); // Devuelve solo los que terminan en .biz
+        });
+        
+        usuariosFiltrados.forEach(function(usuario) { // Recorre cada usuario filtrado
+            const tarjeta = document.createElement('div'); // Crea una tarjeta
+            tarjeta.className = 'card'; // Le añade la clase card
+            tarjeta.style.width = '18rem'; // Establece el ancho
+            tarjeta.style.margin = '10px'; // Añade margen
+            
+            const cuerpoTarjeta = document.createElement('div'); // Crea el cuerpo de la tarjeta
+            cuerpoTarjeta.className = 'card-body'; // Le añade la clase card-body
+            
+            const nombre = document.createElement('h5'); // Crea el título
+            nombre.className = 'card-title'; // Le añade la clase card-title
+            nombre.textContent = usuario.name; // Añade el nombre del usuario
+            
+            const email = document.createElement('p'); // Crea un párrafo
+            email.className = 'card-text'; // Le añade la clase card-text
+            email.textContent = usuario.email; // Añade el email del usuario
+            
+            cuerpoTarjeta.appendChild(nombre); // Añade el nombre al cuerpo
+            cuerpoTarjeta.appendChild(email); // Añade el email al cuerpo
+            tarjeta.appendChild(cuerpoTarjeta); // Añade el cuerpo a la tarjeta
+            contenedor.appendChild(tarjeta); // Añade la tarjeta al contenedor
+        });
+        
+        document.body.appendChild(contenedor); // Añade el contenedor al body
+    });
