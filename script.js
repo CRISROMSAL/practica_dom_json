@@ -293,3 +293,61 @@ fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la AP
         
         document.body.appendChild(contenedor); // Añade el contenedor al body
     });
+
+    // Ejercicio 20: Ejercicio final - mini "visor de usuarios"
+const botonCargarUsuarios = document.getElementById('botonCargarUsuarios'); // Selecciona el botón cargar
+const botonClonarUltimo = document.getElementById('botonClonarUltimo'); // Selecciona el botón clonar
+const contenedorUsuarios = document.getElementById('contenedorUsuarios'); // Selecciona el contenedor
+
+botonCargarUsuarios.onclick = function() { // Cuando se hace clic en cargar usuarios
+    fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la API
+        .then(function(respuesta) { // Recibe la respuesta
+            return respuesta.json(); // Convierte a JSON
+        })
+        .then(function(usuarios) { // Recibe el array de usuarios
+            usuarios.forEach(function(usuario) { // Recorre cada usuario
+                const tarjeta = document.createElement('div'); // Crea una tarjeta
+                tarjeta.className = 'card'; // Le añade la clase card
+                tarjeta.style.width = '18rem'; // Establece el ancho
+                tarjeta.style.display = 'inline-block'; // Las muestra en línea
+                tarjeta.style.margin = '10px'; // Añade margen
+                
+                const cuerpoTarjeta = document.createElement('div'); // Crea el cuerpo de la tarjeta
+                cuerpoTarjeta.className = 'card-body'; // Le añade la clase card-body
+                
+                const nombre = document.createElement('h5'); // Crea el título
+                nombre.className = 'card-title'; // Le añade la clase card-title
+                nombre.textContent = usuario.name; // Añade el nombre
+                
+                const email = document.createElement('p'); // Crea un párrafo para el email
+                email.className = 'card-text'; // Le añade la clase card-text
+                email.textContent = 'Email: ' + usuario.email; // Añade el email
+                
+                const ciudad = document.createElement('p'); // Crea un párrafo para la ciudad
+                ciudad.className = 'card-text'; // Le añade la clase card-text
+                ciudad.textContent = 'Ciudad: ' + usuario.address.city; // Añade la ciudad
+                
+                const botonEliminar = document.createElement('button'); // Crea el botón eliminar
+                botonEliminar.className = 'btn btn-danger'; // Le añade clases de Bootstrap
+                botonEliminar.textContent = 'Eliminar'; // Añade el texto del botón
+                botonEliminar.onclick = function() { // Cuando se hace clic en eliminar
+                    tarjeta.remove(); // Elimina la tarjeta del DOM
+                };
+                
+                cuerpoTarjeta.appendChild(nombre); // Añade el nombre al cuerpo
+                cuerpoTarjeta.appendChild(email); // Añade el email al cuerpo
+                cuerpoTarjeta.appendChild(ciudad); // Añade la ciudad al cuerpo
+                cuerpoTarjeta.appendChild(botonEliminar); // Añade el botón al cuerpo
+                tarjeta.appendChild(cuerpoTarjeta); // Añade el cuerpo a la tarjeta
+                contenedorUsuarios.appendChild(tarjeta); // Añade la tarjeta al contenedor
+            });
+        });
+};
+
+botonClonarUltimo.onclick = function() { // Cuando se hace clic en clonar último
+    const ultimaTarjeta = contenedorUsuarios.lastElementChild; // Obtiene la última tarjeta
+    if (ultimaTarjeta) { // Si existe una tarjeta
+        const clon = ultimaTarjeta.cloneNode(true); // Clona la tarjeta completa
+        contenedorUsuarios.appendChild(clon); // Añade el clon al contenedor
+    }
+};
