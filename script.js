@@ -1,3 +1,7 @@
+//Cristina Román Salvatierra
+
+
+
 // Ejercico 1 Cambiar el texto del h1 usando getElementById
 document.getElementById('titulo').textContent = 'Nuevo título';
 
@@ -293,6 +297,8 @@ fetch("https://jsonplaceholder.typicode.com/users") // Hace la petición a la AP
         
         document.body.appendChild(contenedor); // Añade el contenedor al body
     });
+
+
 
     // Ejercicio 20: Ejercicio final - mini "visor de usuarios"
 const botonCargarUsuarios = document.getElementById('botonCargarUsuarios'); // Selecciona el botón cargar
